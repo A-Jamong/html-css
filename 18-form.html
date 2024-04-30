@@ -1,1 +1,71 @@
-<!-- HTML 코드를 작성해 주세요. -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>폼 관련 요소</title>
+</head>
+
+<body>
+  <!-- 검색어 입력 서식 예시 -->
+  <form action="https://formspree.io/seulbinim@gmail.com" method="POST" class="search-form" id="serach-form">
+    <!-- 테두리 -->
+    <fieldset>
+      <legend>검색</legend>
+      <div class="searchform-wrapper">
+        <!-- 이런 입력부품은 재사용 가능성이 높으니까 컴포넌트로 만들어둠 -->
+        <div class="form-input-wrapper">
+          <label for="search" class="a11yHidden form-input-label">검색어</label>
+          <!-- 입력을 받을 수 있는 태그 Input -->
+          <!-- required 속성 때문에 검색어를 보내기 전에 확인을 한번 함. - validation  -->
+          <!-- type을 search 가 아니라 email 로 넣으면 다른 경고창이 뜬다. -->
+          <input type="search" id="search" required placeholder="검색어를 입력하세요." name="search" class="form-input" />
+        </div>
+        <!-- submit(디폴트) - 버튼을 클릭하는 순간 폼 영역안에 있는 정보를 가져다가 전송 -->
+        <!-- button - 전송x 단순 클릭 -->
+      </div>
+    </fieldset>
+  </form>
+  <!-- 폼안에 있는 정보 전송할 수 있다  -->
+  <button type="submit" class="searchform-button" form="search-form">검색</button>
+  <br />
+  <!-- 체크 박스 예시 -->
+  <div class="form-checkbox-wrapper">
+    <input class="form-checkbox" type="checkbox" id="secretWritings" name="secretWritings" />
+    <label for="secretWritings" class="form-checkbox-label">
+      비밀글로 등록하기
+    </label>
+  </div>
+  <br />
+  <!-- 라디오 버튼 (둘 중 하나만 체크할 수 있는 것) 예시 -->
+  <p id="euid-course">이듬 교육을 다시 수강할 의향이 있으신가요?</p>
+  <div aria-labelledby="euid-course" role="group">
+    <div class="form-radio-wrapper">
+      <input type="radio" id="euid-course-yes" value="Y" name="euidCourse" class="form-radio" />
+      <label for="euid-course-yes" class="form-radio-label">예</label>
+    </div>
+    <div class="form-radio-wrapper">
+      <input type="radio" id="euid-course-no" value="N" name="euidCourse" class="form-radio" />
+      <label for="euid-course-no" class="form-radio-label">아니오</label>
+    </div>
+  </div>
+  <br />
+  <!-- 셀렉트 박스 예시 -->
+  <!-- 레이블 태그를 사용하고 싶지 않으면 wai aria 를 쓰자 -->
+  <select aria-label="언어 선택" name="selectLanguage" class="select-language__select">
+    <option value="korean">한국어</option>
+    <option value="english">영어</option>
+    <option value="spanish">스패니쉬</option>
+  </select>
+  <br />
+  <!-- 텍스트 에어리어 예시 -->
+  <div class="form-textarea-wrapper">
+    <label for="message" class="form-textarea-label">Message</label>
+    <textarea id="message" name="message" cols="20" rows="10" placeholder="Put your extra message"
+      class="form-textarea"></textarea>
+  </div>
+
+</body>
+
+</html>
